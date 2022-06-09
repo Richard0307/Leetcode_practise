@@ -43,3 +43,21 @@ class Solution:
             if cur_len > max_len: max_len = cur_len
             window.add(s[i])
         return max_len
+    
+    # Leetcode_q4
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        
+        nums1.extend(nums2)       
+        nums1.sort()
+        length = len(nums1)
+        if length ==1 :
+            return nums1[0]
+        elif length == 0:
+            return 0
+        elif length %2 == 0: 
+            index1 = int(length/2)
+            index2 = index1-1
+            return(nums1[index2]+nums1[index1])/2
+        elif length %2 == 1:
+            index3 = int(length/2)
+            return (nums1[index3])
